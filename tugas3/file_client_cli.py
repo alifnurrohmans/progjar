@@ -13,7 +13,7 @@ def send_command(command_str=""):
         sock.sendall(command_str.encode())
         data_received = ""
         while True:
-            data = sock.recv(16)
+            data = sock.recv(100000)
             if data:
                 data_received += data.decode()
                 if "\r\n\r\n" in data_received:
